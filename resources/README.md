@@ -13,15 +13,6 @@ babel7 后来的版本舍弃了以前的 babel-*-* 的命名方式，改成了 @
  - 删除extract-text-webpack-plugin，改用mini-css-extract-plugin [文档](https://www.npmjs.com/package/mini-css-extract-plugin)
  - 增加 npm run build --report 打包后文件大小分析命令
 
-
-
-### 更新后报错
-##### clean-webpack-plugin only accepts an options object
-
-原因是clean-webpack-plugin插件更新版本后，new cleanWebpackPlugin(),里只能传一个对象参数了，配置地址[https://github.com/johnagan/clean-webpack-plugin#options-and-defaults-optional](https://github.com/johnagan/clean-webpack-plugin#options-and-defaults-optional)
-
-### 以下是原文
-
 ### webpack4 demo
 ------
 >webpack4 多入口，多页面项目构建案例。
@@ -35,10 +26,3 @@ cnpm install
 npm run dev //开发环境
 npm run build //生产环境打包
 ```
-文章介绍
-
-### [点击前往](https://segmentfault.com/a/1190000014984842)
-
-### License
-### [MIT](https://github.com/zhouyupeng/webpack4.x_demo/blob/master/LICENSE)
-Copyright (c) 2018-present, ypzhou

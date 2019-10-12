@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require("webpack");
 const glob = require("glob");
+// 模版目录
+const VIEW_PATH = path.resolve('../application/views/templates');
+// const VIEW_PATH = path.resolve('./dist');
 //消除冗余的css
 const purifyCssWebpack = require("purifycss-webpack");
 // html模板
@@ -10,9 +13,11 @@ const copyWebpackPlugin = require("copy-webpack-plugin");
 const rules = require("./webpack.rules.conf.js");
 // 获取html-webpack-plugin参数的方法
 let getHtmlConfig = function (name, chunks) {
+	let tpl_name = name.split('.');
+	tpl_name = tpl_name.join('/');
 	return {
 		template: `./src/pages/${name}/index.html`,
-		filename: `${name}.html`,
+		filename: `${VIEW_PATH}/${tpl_name}.html`,
 		// favicon: './favicon.ico',
 		// title: title,
 		inject: true,
@@ -86,7 +91,7 @@ module.exports = {
 	// 		}
 	// 	}
 	// },
-}
+};
 
 
 //修改   自动化配置页面
@@ -102,4 +107,4 @@ Object.keys(entrys).forEach(function (element) {
 //自动生成html模板
 htmlArray.forEach((element) => {
 	module.exports.plugins.push(new htmlWebpackPlugin(getHtmlConfig(element._html, element.chunks)));
-})
+});

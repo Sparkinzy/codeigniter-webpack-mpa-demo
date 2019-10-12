@@ -2,7 +2,7 @@
  * ypzhou
  */
 (function ($, window) {
-	var tabUI = tabUI || {};
+	const tabUI = tabUI || {};
 	function Tab(wrap, options) {
 		this.tabWrap = wrap;
 		this.tabHdCon = this.tabWrap.find(".tab-hd-con");
@@ -14,13 +14,13 @@
 			tabEvent: "click", //tab事件有click,mouseover
 			now: 0, //默认第几个显示
 			delay: false //延迟时间,false时不延迟
-		}
+		};
 		$.extend(this.options, options);
 		this.init();
 	}
 	Tab.prototype.constructor = Tab;
 	Tab.prototype.init = function () {
-		var _this = this;
+		const _this = this;
 		this.tabHdCon.eq(this.options.now).addClass("active");
 		this.tabHdContent.eq(this.options.now).css("display", "block");
 		this.tabHdCon.on(this.options.tabEvent, function () {
@@ -43,9 +43,9 @@
 				_this.autoPlay();
 			});
 		}
-	}
+	};
 	Tab.prototype.autoPlay = function () {
-		var _this = this;
+		const _this = this;
 		_this.options.autoPlayTimer = setInterval(function () {
 			if (_this.options.now == _this.tabHdCon.length - 1) {
 				_this.options.now = 0;
@@ -57,16 +57,16 @@
 			_this.tabHdContent.css("display", "none");
 			_this.tabHdContent.eq(_this.options.now).css("display", "block");
 		}, this.options.autoPlay);
-	}
+	};
 	Tab.prototype.change = function (obj) {
 		this.tabHdCon.removeClass("active");
 		this.options.now = $(obj).index();
 		this.tabHdCon.eq(this.options.now).addClass("active");
 		this.tabHdContent.css("display", "none");
 		this.tabHdContent.eq(this.options.now).css("display", "block");
-	}
+	};
 
-	var tab = function (wrap, options) {
+	const tab = function (wrap, options) {
 		if (wrap.length < 1) {
 			return false;
 		}
@@ -74,11 +74,11 @@
 			new Tab($(value), options);
 		})
 
-	}
+	};
 	tabUI.tab = tab;
 	tabUI.init = function (opt) {
 		$(".tabWrap") && tab($(".tabWrap"), opt);
-	}
+	};
 
 	if (typeof module !== 'undefined' && typeof exports === 'object' && define.cmd) {
 		module.exports = tabUI;
@@ -89,4 +89,4 @@
 	} else {
 		window.tabUI = tabUI;
 	}
-})(jQuery, window)
+})(jQuery, window);

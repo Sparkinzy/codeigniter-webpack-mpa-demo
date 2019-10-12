@@ -5,18 +5,18 @@ const merge = require("webpack-merge");
 const cleanWebpackPlugin = require("clean-webpack-plugin");
 //4.x之后用以压缩
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 //4.x之后提取css
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpackConfigBase = require('./webpack.base.conf');
 const webpackConfigProd = {
 	mode: 'production', // 通过 mode 声明生产环境
 	output: {
-		path: path.resolve(__dirname, '../dist'),
+		path: path.resolve(__dirname, '../../public/dist'),
 		// 打包多出口文件
 		// 生成 a.bundle.[hash].js  b.bundle.[hash].js
 		filename: './js/[name].js',
-		publicPath: '/'
+		publicPath: '/dist/'
 	},
 	devtool: 'none',
 	plugins: [
@@ -38,8 +38,6 @@ const webpackConfigProd = {
 				safe: true
 			}
 		}),
-		//上线压缩 去除console等信息webpack4.x之后去除了webpack.optimize.UglifyJsPlugin
-		//https://github.com/mishoo/UglifyJS2/tree/harmony#compress-options
 		new UglifyJSPlugin({
 			uglifyOptions: {
 				compress: {
@@ -48,9 +46,7 @@ const webpackConfigProd = {
 				}
 			}
 		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name:"vendor"
-		})
+
 	],
 	module: {
 		rules: []

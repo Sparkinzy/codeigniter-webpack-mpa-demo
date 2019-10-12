@@ -16,10 +16,11 @@ if(!function_exists('view')){
 	 */
 	function view($template='',$data= array(),$return = FALSE)
 	{
-		if (strrpos('html',$template)=== 0){
+		if (strrpos('html',$template)=== false){
 			$template = join(DIRECTORY_SEPARATOR,explode('.',$template)).'.html';
 		}
 		$ci = & get_instance();
+		
 		return $ci->smarty->view($template,$data,$return);
 	}
 }

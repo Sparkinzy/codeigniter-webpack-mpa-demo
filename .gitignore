@@ -1,5 +1,7 @@
 .DS_Store
 
+node_modules
+
 application/cache/*
 !application/cache/index.html
 
@@ -25,3 +27,6 @@ composer.lock
 *.sublime-project
 /tests/tests/
 /tests/results/
+/public/dist/
+/public/dev/
+application/views/templates_c/

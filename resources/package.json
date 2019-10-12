@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server  --config build/webpack.dev.conf.js",
+    "dev": "cross-env NODE_ENV=development webpack --watch  --config build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js",
-    "server": "live-server ./ --port=8888",
-    "c": "node build/create.js"
+    "new": "node build/create.js"
   },
   "author": "ypzhou",
   "license": "ISC",
@@ -47,6 +46,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "jquery": "^3.3.1"
   },
   "browserslist": [
