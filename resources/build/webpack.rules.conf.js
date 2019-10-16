@@ -29,7 +29,7 @@ const rules = [{
 			options: {
 				limit: 5 * 1024, //小于这个时将会已base64位图片打包处理
 				// 图片文件输出的文件夹
-				outputPath: "images"
+				outputPath: "/dist/images"
 			}
 		}]
 	},

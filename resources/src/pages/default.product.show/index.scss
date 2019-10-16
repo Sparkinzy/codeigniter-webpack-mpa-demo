@@ -1,5 +1,10 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/alert";
 *{
   color: #fff;
   background-color: #CCCCCC;
 }
-@import "~bootstrap/scss/bootstrap";
