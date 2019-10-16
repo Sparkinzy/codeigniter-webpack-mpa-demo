@@ -28,8 +28,9 @@ const rules = [{
 			loader: "url-loader",
 			options: {
 				limit: 5 * 1024, //小于这个时将会已base64位图片打包处理
+				name:'[name].[hash:8].[ext]',
 				// 图片文件输出的文件夹
-				outputPath: "/dist/images"
+				outputPath: "dist/images"
 			}
 		}]
 	},
@@ -38,6 +39,8 @@ const rules = [{
 		loader: 'url-loader',
 		options: {
 			limit: 10000,
+			name:'[name].[hash:8].[ext]',
+
 		}
 	},
 	{
@@ -60,5 +63,17 @@ const rules = [{
 			'less-loader',
 		]
 	},
+	{
+		test:/\.bundle(\.js|\.css)$/,
+		use:{
+			loader:"bundle-loader",
+			options:{
+				options:{
+					lazy:true,
+					name:"[name]"
+				}
+			}
+		}
+	}
 ];
 module.exports = rules;

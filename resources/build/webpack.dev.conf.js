@@ -11,7 +11,7 @@ const webpackConfigDev = {
 		filename: 'js/[name].js',
 		publicPath: '/dev/'
 	},
-	// devtool: "source-map",  // 开启调试模式
+	devtool: "source-map",  // 开启调试模式
 	plugins: [
 	],
 	module: {

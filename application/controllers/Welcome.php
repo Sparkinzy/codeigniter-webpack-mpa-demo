@@ -11,6 +11,6 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 //		$this->load->view('welcome_message');
-		return view('index');
+		return view('default.product.show');
 	}
 }

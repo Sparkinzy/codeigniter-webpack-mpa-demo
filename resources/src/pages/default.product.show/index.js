@@ -1,3 +1,33 @@
 import './index.scss';
+
 console.log('default.product.show');
-$('body').append('<span class="alert alert-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ea facilis libero rerum! Aspernatur consequatur deleniti ducimus error id ipsam minima nemo optio placeat, quaerat quidem quo rem saepe veniam?</span>')
+
+
+require.ensure([],()=>{
+    $('#hit-me').on('click',this,function(event){
+        event.preventDefault();
+        alert('You hitted me !!!!');
+        require('../../js/tab');
+
+    });
+},'tab.bundle');
+
+require.ensure([],()=>{
+    $(document).ready(function(){
+        require('swiper/css/swiper.min.css');
+        var Swiper = require('swiper/js/swiper');
+        var mySwiper = new Swiper('.swiper-container',{
+            loop:true,
+            pagination:{
+                el:'.swiper-pagination'
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    });
+},'swiper.banner.bundle');
+
+
+

@@ -17,7 +17,8 @@ let getHtmlConfig = function (name, chunks) {
 	return {
 		template: `./src/pages/${name}/index.html`,
 		filename: `${VIEW_PATH}/${tpl_name}.html`,
-		// favicon: './favicon.ico',
+		base:{'href':'http://ci3.pika9.com','target':'_blank'},
+		favicon: './favicon.ico',
 		// title: title,
 		inject: true,
 		hash: true, //开启hash  ?[hash]
