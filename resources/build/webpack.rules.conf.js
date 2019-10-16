@@ -8,7 +8,7 @@ const rules = [{
 				options: {
 					// you can specify a publicPath here
 					// by default it use publicPath in webpackOptions.output
-					publicPath: '../'
+					publicPath: '/dist/css'
 				}
 			},
 			'css-loader',
@@ -41,9 +41,9 @@ const rules = [{
 		}
 	},
 	{
-		test: /\.html$/,
-		// html中的img标签
-		use: ["html-withimg-loader"]
+		// test: /\.html$/,
+		// // html中的img标签
+		// use: ["html-withimg-loader"]
 	}, {
 		test: /\.less$/,
 		use: [

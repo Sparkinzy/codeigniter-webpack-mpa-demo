@@ -15,7 +15,7 @@ const webpackConfigProd = {
 		path: path.resolve(__dirname, '../../public/dist'),
 		// 打包多出口文件
 		// 生成 a.bundle.[hash].js  b.bundle.[hash].js
-		filename: './js/[name].js',
+		filename: 'js/[name].js',
 		publicPath: '/dist/'
 	},
 	devtool: 'none',
@@ -33,19 +33,19 @@ const webpackConfigProd = {
 			filename: 'css/[name].min.css',
 		}),
 		//压缩css
-		new OptimizeCSSPlugin({
-			cssProcessorOptions: {
-				safe: true
-			}
-		}),
-		new UglifyJSPlugin({
-			uglifyOptions: {
-				compress: {
-					drop_debugger: false,
-					drop_console: true
-				}
-			}
-		}),
+		// new OptimizeCSSPlugin({
+		// 	cssProcessorOptions: {
+		// 		safe: true
+		// 	}
+		// }),
+		// new UglifyJSPlugin({
+		// 	uglifyOptions: {
+		// 		compress: {
+		// 			drop_debugger: false,
+		// 			drop_console: true
+		// 		}
+		// 	}
+		// }),
 
 	],
 	module: {

@@ -3,7 +3,6 @@ const webpack = require("webpack");
 const glob = require("glob");
 // 模版目录
 const VIEW_PATH = path.resolve('../application/views/templates');
-// const VIEW_PATH = path.resolve('./dist');
 //消除冗余的css
 const purifyCssWebpack = require("purifycss-webpack");
 // html模板
@@ -47,6 +46,7 @@ function getEntry(PAGES_DIR) {
 	return entry;
 }
 let entrys = getEntry('./src/pages/');
+
 module.exports = {
 	entry: entrys,
 	module: {
@@ -66,7 +66,7 @@ module.exports = {
 		//静态资源输出
 		new copyWebpackPlugin([{
 			from: path.resolve(__dirname, "../src/assets"),
-			to: './assets',
+			to: '../../public/dist/assets',
 			ignore: ['.*']
 		}]),
 		// 消除冗余的css代码
@@ -76,21 +76,21 @@ module.exports = {
 
 	],
 	// webpack4里面移除了commonChunksPulgin插件，放在了config.optimization里面,提取js， vendor名字可改
-	// optimization: {
-	// 	splitChunks: {
-	// 		cacheGroups: {
-	// 			vendor: {
-	// 				// test: /\.js$/,
-	// 				test: path.resolve(__dirname, '../node_modules'),
-	// 				chunks: "initial", //表示显示块的范围，有三个可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为all;
-	// 				name: "vendor", //拆分出来块的名字(Chunk Names)，默认由块名和hash值自动生成；
-	// 				minChunks: 1,
-	// 				reuseExistingChunk: true,
-	// 				enforce: true
-	// 			}
-	// 		}
-	// 	}
-	// },
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				vendor: {
+					// test: /\.js$/,
+					test: path.resolve(__dirname, '../node_modules'),
+					chunks: "initial", //表示显示块的范围，有三个可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为all;
+					name: "vendor", //拆分出来块的名字(Chunk Names)，默认由块名和hash值自动生成；
+					minChunks: 1,
+					reuseExistingChunk: true,
+					enforce: true
+				}
+			}
+		}
+	},
 };
 
 
@@ -100,9 +100,9 @@ Object.keys(entrys).forEach(function (element) {
 	htmlArray.push({
 		_html: element,
 		title: '',
-		chunks: [element]
+		chunks: [element,'vendor']
 	})
-})
+});
 
 //自动生成html模板
 htmlArray.forEach((element) => {

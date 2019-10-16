@@ -1,6 +1,3 @@
-/**
- * ypzhou
- */
 (function ($, window) {
 	const tabUI = tabUI || {};
 	function Tab(wrap, options) {
@@ -24,8 +21,8 @@
 		this.tabHdCon.eq(this.options.now).addClass("active");
 		this.tabHdContent.eq(this.options.now).css("display", "block");
 		this.tabHdCon.on(this.options.tabEvent, function () {
-			if (_this.options.tabEvent == "mouseover" && (!isNaN(_this.options.delay))) { //延迟切换
-				var This = this;
+			if (_this.options.tabEvent === "mouseover" && (!isNaN(_this.options.delay))) { //延迟切换
+				let This = this;
 				_this.timer = setTimeout(function () {
 					_this.change(This);
 				}, _this.options.delay);
@@ -47,7 +44,7 @@
 	Tab.prototype.autoPlay = function () {
 		const _this = this;
 		_this.options.autoPlayTimer = setInterval(function () {
-			if (_this.options.now == _this.tabHdCon.length - 1) {
+			if (_this.options.now === _this.tabHdCon.length - 1) {
 				_this.options.now = 0;
 			} else {
 				_this.options.now++;
