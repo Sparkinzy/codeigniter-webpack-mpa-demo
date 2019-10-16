@@ -1,14 +1,14 @@
 {
-  "name": "webpackdemo",
+  "name": "codeigniter-mpa-app-template",
   "version": "1.0.1",
-  "description": "",
+  "description": "基于CI3.10框架，使用webpack4进行多页面打包构建，然后通过smarty渲染",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --watch  --config build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js",
     "new": "node build/create.js"
   },
-  "author": "ypzhou",
+  "author": "sparkinzy",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.4.0",
